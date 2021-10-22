@@ -13,3 +13,8 @@ def index (request):
     return render(request, 'index.html', {'todos': todo})
 
 # Create your views here.
+
+def delete(request,pk):
+    todo = Todo.objects.get(id=pk)
+    todo.delete()
+    return redirect('/')
